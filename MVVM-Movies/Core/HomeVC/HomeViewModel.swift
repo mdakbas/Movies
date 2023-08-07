@@ -36,11 +36,6 @@ extension HomeViewModel: HomeViewModelProtocol {
             guard let returnedMovies = returnedMovies else {return}
             self.moviesService.append(contentsOf: returnedMovies)
             self.view?.collectionViewReload()
-            
-            //            Datalari kontrol edildi.
-            //            print("ReturnCount = \(returnedMovies.count)")
-            //            print("MovieCount = \(moviesService.count)")
-            //            print("")
         }
     }
     

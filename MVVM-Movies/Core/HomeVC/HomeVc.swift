@@ -43,7 +43,6 @@ extension HomeVC: HomeVCProtocol {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.movieCellReuseID )
         
         collectionView.pinToEdges(view: view)
@@ -65,26 +64,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let pathid = homeViewModel.getMovieModel(index: indexPath.row)._id
        homeViewModel.getDetail(id: pathid)
     }
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        guard let cellView = cell as? MovieCell else { return }
-//        let itemNumber = NSNumber(value: indexPath.item)
-//        if let cacheImage = self.cache.object(forKey: itemNumber) {
-//            printContent("Using a cache \(itemNumber)")
-//            cellView.posterImageView.image = cacheImage
-//        }
-//        //        }else {
-//        //            PosterImageView.imageDownload(    )
-//        //
-//        //            let urlPath = ApiUrls.imageURL(posterPath: movie._posterPath)
-//        //            self.NetworkManager.shared.fetchImage(urlPath: urlPath) { [weak self] image in
-//        //                guard let self = self else { return }
-//        //                cellView.posterImageView.image =  image
-//        //                self.cache.setObject(image, forKey: itemNumber)
-//        //
-//        //            }
-//        //        }
-//    }
-//
+
     func collectionViewReload() {
         collectionView.reloadOnMainThread()
     }
@@ -98,12 +78,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
-        
-        
-        //        print("Offsety = \(offsetY)")
-        //        print("ContentHeight = \(contentHeight)")
-        //        print("Height = \(height)")
-        
+
         if offsetY >= (contentHeight -  (2 * height)){
             homeViewModel.getMovies(page: homeViewModel.page)
             homeViewModel.page += 1

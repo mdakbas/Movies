@@ -23,8 +23,6 @@ class MovieCell: UICollectionViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        // posterImageView = nil
         posterImageView.cancelDownloading()
     }
     private func configureCell() {

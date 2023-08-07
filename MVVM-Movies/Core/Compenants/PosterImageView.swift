@@ -22,6 +22,7 @@ class PosterImageView: UIImageView {
     
     func imageDownload(movie: MovieResults){
  
+        
        let urlPath = ApiUrls.imageURL(posterPath: movie._posterPath)
         dataTask = NetworkManager.shared.download(urlPath: urlPath) { [weak self] results in
             guard let self = self else { return }
